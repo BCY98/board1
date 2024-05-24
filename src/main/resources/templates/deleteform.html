@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시글 삭제</title>
+</head>
+<body>
+<h1>게시글 삭제</h1>
+<form action="#" th:action="@{/delete(id=${post.id})}" method="post">
+    <div>
+        <label>암호:</label>
+        <input type="password" name="password" />
+    </div>
+    <div>
+        <button type="submit">삭제</button>
+    </div>
+</form>
+<a th:href="@{/list}">목록으로 돌아가기</a>
+</body>
+</html>

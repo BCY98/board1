@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>게시판 목록</title>
+</head>
+<body>
+<h1>게시판 목록</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>제목</th>
+        <th>이름</th>
+        <th>등록일</th>
+    </tr>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.id}"></td>
+        <td th:text="${post.title}"></td>
+        <td th:text="${post.name}"></td>
+        <td th:text="${#dates.format(post.createdAt, 'yyyy/MM/dd')}"></td>
+    </tr>
+</table>
+<div>
+    <a th:href="@{/list?page=1}">1</a>
+    <a th:href="@{/list?page=2}">2</a>
+    <a th:href="@{/list?page=3}">3</a>
+    <!-- 추가 페이지 링크 -->
+</div>
+<a th:href="@{/writeform}">글 쓰기</a>
+</body>
+</html>
